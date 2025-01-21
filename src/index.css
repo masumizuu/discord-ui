@@ -1,0 +1,153 @@
+@import "@fontsource/lato";
+@import "@fontsource/rammetto-one";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  max-width: 100vw !important;
+  margin: unset !important;
+  padding: 0 !important;
+  text-align: unset !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the toast container is on top of other elements */
+.Toastify__toast-container {
+  z-index: 9999 !important; /* Set a very high z-index */
+}
+
+a {
+  font-weight: 500;
+  color: #128bc9;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  color: #128bc9;
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #646cff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+select {
+  background-color: #1e1f22;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 4px;
+  height: 46px;
+  color: #9d9ea4;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #5865f2;
+}
+
+/* MARQUEE THINGS */
+
+.marquee {
+  overflow: hidden;
+  width: 110%;
+  margin-left: -5%;
+  background: linear-gradient(to bottom, rgba(88, 101, 242, 0.8) 70%, rgba(138, 151, 242, 0.8) 100%);
+  color: #fff;
+}
+
+.marquee:nth-child(even) {
+  transform: rotate(5deg);
+  background: #000;
+  color: #161cbb;
+}
+
+.marquee p {
+  transform: translateY(0.07em);
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  gap: 0.5em;
+  line-height: 1.1;
+  font-size: clamp(2.5rem, 12vw, 6.2rem);
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.marquee--inner {
+  width: max-content;
+  display: flex;
+  text-transform: uppercase;
+  animation: marquee 10s infinite linear, reduce-marquee 10s infinite linear paused;
+}
+
+.marquees {
+  align-content: center;
+  height: 100%;
+  display: grid;
+  gap: 5vw;
+  overflow: hidden;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes reduce-marquee {
+  from {
+    transform: translateX(16.66%);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
